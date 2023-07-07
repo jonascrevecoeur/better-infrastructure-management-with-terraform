@@ -41,13 +41,13 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         
       - name: Terraform Init
-        uses: hashicorp/terraform-github-actions/init@v1
+        run: terraform init
 
       - name: Terraform Validate
-        uses: hashicorp/terraform-github-actions/validate@v1
+        run: terraform validate
         
       - name: Terraform Apply
-        uses: hashicorp/terraform-github-actions/apply@v1
+        run: terraform apply -auto-approve
         
         
       
