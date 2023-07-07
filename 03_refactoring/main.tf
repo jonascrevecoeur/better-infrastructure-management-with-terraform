@@ -68,6 +68,7 @@ output "notebook_url" {
 
 variable "student_name" {
   type = string
+  default = "itsme"
 }
 resource "aws_s3_bucket" "notebook_bucket" {
   bucket = "better-infrastructure-management-with-terraform-${var.student_name}"
