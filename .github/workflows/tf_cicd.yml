@@ -16,7 +16,7 @@ on:
 defaults:
   run:
     shell: bash
-    working-directory: extra_CI_CD
+    working-directory: 03_refactoring
     
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,7 +29,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
-      TF_ACTION_WORKING_DIR: "extra_CI_CD/"
+      TF_ACTION_WORKING_DIR: "03_refactoring/"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
