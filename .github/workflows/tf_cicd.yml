@@ -29,6 +29,7 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
+      CONFIG_DIRECTORY: "extra_CI_CD/"
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -40,10 +41,14 @@ jobs:
         uses: hashicorp/setup-terraform@v1
 
       - name: Terraform Validate
-        uses: hashicorp/terraform-github-actions/validate@v0.3.7
-
+        uses: hashicorp/terraform-github-actions/validate@v0.3.7 
+        with:
+          directory: ${{ env.CONFIG_DIRECTORY }}
+        
       - name: Terraform Apply
         uses: hashicorp/terraform-github-actions/apply@v0.4.0
+        with:
+          directory: ${{ env.CONFIG_DIRECTORY }}
         
         
       
