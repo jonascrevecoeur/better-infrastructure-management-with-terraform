@@ -39,16 +39,15 @@ jobs:
       # Install terraform (latest version)
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
+        
+      - name: Terraform Init
+        uses: hashicorp/terraform-github-actions/init@v0.4.0
 
       - name: Terraform Validate
         uses: hashicorp/terraform-github-actions/validate@v0.3.7 
-        with:
-          directory: ${{ env.CONFIG_DIRECTORY }}
         
       - name: Terraform Apply
         uses: hashicorp/terraform-github-actions/apply@v0.4.0
-        with:
-          directory: ${{ env.CONFIG_DIRECTORY }}
         
         
       
